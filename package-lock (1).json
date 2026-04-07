@@ -1,0 +1,311 @@
+// =============================================================
+// Mock Data — Realistic dummy data for the AI Agency Dashboard
+// Supports industry-specific simulation (Restaurant, Gym, Clinic, Real Estate)
+// =============================================================
+
+// ─── BASE (Default / Generic) ────────────────────────────────
+const dashboardStats = {
+  default: {
+    leadsGenerated: 12847,
+    activeChatbots: 34,
+    revenue: 284930,
+    conversionRate: 23.7,
+    activeVoiceAgents: 12,
+    avgResponseTime: 1.2,
+    customerSatisfaction: 97.3,
+    totalConversations: 89420
+  },
+  restaurant: {
+    leadsGenerated: 4280,
+    activeChatbots: 8,
+    revenue: 89400,
+    conversionRate: 31.2,
+    activeVoiceAgents: 4,
+    avgResponseTime: 0.8,
+    customerSatisfaction: 96.1,
+    totalConversations: 24300
+  },
+  gym: {
+    leadsGenerated: 6720,
+    activeChatbots: 12,
+    revenue: 142600,
+    conversionRate: 27.8,
+    activeVoiceAgents: 6,
+    avgResponseTime: 1.0,
+    customerSatisfaction: 94.8,
+    totalConversations: 38100
+  },
+  clinic: {
+    leadsGenerated: 3960,
+    activeChatbots: 6,
+    revenue: 198200,
+    conversionRate: 35.4,
+    activeVoiceAgents: 8,
+    avgResponseTime: 0.9,
+    customerSatisfaction: 98.7,
+    totalConversations: 19800
+  },
+  realestate: {
+    leadsGenerated: 8940,
+    activeChatbots: 18,
+    revenue: 347800,
+    conversionRate: 19.6,
+    activeVoiceAgents: 10,
+    avgResponseTime: 1.4,
+    customerSatisfaction: 95.2,
+    totalConversations: 52600
+  }
+};
+
+// ─── Revenue Data ────────────────────────────────────────────
+const revenueData = {
+  default: [
+    { month: 'Jan', revenue: 18200, leads: 820 },
+    { month: 'Feb', revenue: 21400, leads: 940 },
+    { month: 'Mar', revenue: 19800, leads: 870 },
+    { month: 'Apr', revenue: 24600, leads: 1100 },
+    { month: 'May', revenue: 28100, leads: 1280 },
+    { month: 'Jun', revenue: 26700, leads: 1190 },
+    { month: 'Jul', revenue: 31200, leads: 1420 },
+    { month: 'Aug', revenue: 29800, leads: 1350 },
+    { month: 'Sep', revenue: 33500, leads: 1510 },
+    { month: 'Oct', revenue: 35100, leads: 1620 },
+    { month: 'Nov', revenue: 38400, leads: 1780 },
+    { month: 'Dec', revenue: 41200, leads: 1960 }
+  ],
+  restaurant: [
+    { month: 'Jan', revenue: 5400, leads: 280 },
+    { month: 'Feb', revenue: 6200, leads: 310 },
+    { month: 'Mar', revenue: 5800, leads: 290 },
+    { month: 'Apr', revenue: 7100, leads: 340 },
+    { month: 'May', revenue: 8400, leads: 410 },
+    { month: 'Jun', revenue: 9200, leads: 460 },
+    { month: 'Jul', revenue: 8800, leads: 430 },
+    { month: 'Aug', revenue: 9600, leads: 480 },
+    { month: 'Sep', revenue: 7900, leads: 380 },
+    { month: 'Oct', revenue: 8100, leads: 390 },
+    { month: 'Nov', revenue: 9800, leads: 500 },
+    { month: 'Dec', revenue: 11200, leads: 560 }
+  ],
+  gym: [
+    { month: 'Jan', revenue: 14200, leads: 680 },
+    { month: 'Feb', revenue: 12800, leads: 610 },
+    { month: 'Mar', revenue: 11600, leads: 540 },
+    { month: 'Apr', revenue: 10200, leads: 480 },
+    { month: 'May', revenue: 9800, leads: 450 },
+    { month: 'Jun', revenue: 10400, leads: 490 },
+    { month: 'Jul', revenue: 11200, leads: 530 },
+    { month: 'Aug', revenue: 12600, leads: 600 },
+    { month: 'Sep', revenue: 13800, leads: 660 },
+    { month: 'Oct', revenue: 12400, leads: 580 },
+    { month: 'Nov', revenue: 11800, leads: 550 },
+    { month: 'Dec', revenue: 10800, leads: 500 }
+  ],
+  clinic: [
+    { month: 'Jan', revenue: 14600, leads: 240 },
+    { month: 'Feb', revenue: 15200, leads: 260 },
+    { month: 'Mar', revenue: 16800, leads: 290 },
+    { month: 'Apr', revenue: 17400, leads: 310 },
+    { month: 'May', revenue: 18200, leads: 330 },
+    { month: 'Jun', revenue: 16900, leads: 300 },
+    { month: 'Jul', revenue: 17800, leads: 320 },
+    { month: 'Aug', revenue: 18600, leads: 340 },
+    { month: 'Sep', revenue: 19200, leads: 360 },
+    { month: 'Oct', revenue: 17900, leads: 320 },
+    { month: 'Nov', revenue: 18400, leads: 340 },
+    { month: 'Dec', revenue: 20400, leads: 380 }
+  ],
+  realestate: [
+    { month: 'Jan', revenue: 24200, leads: 620 },
+    { month: 'Feb', revenue: 26800, leads: 680 },
+    { month: 'Mar', revenue: 28400, leads: 720 },
+    { month: 'Apr', revenue: 31200, leads: 790 },
+    { month: 'May', revenue: 29600, leads: 740 },
+    { month: 'Jun', revenue: 27800, leads: 700 },
+    { month: 'Jul', revenue: 30400, leads: 760 },
+    { month: 'Aug', revenue: 32100, leads: 810 },
+    { month: 'Sep', revenue: 33800, leads: 860 },
+    { month: 'Oct', revenue: 35200, leads: 900 },
+    { month: 'Nov', revenue: 31600, leads: 790 },
+    { month: 'Dec', revenue: 36400, leads: 940 }
+  ]
+};
+
+const automations = [
+  { id: 1, name: 'Lead Capture Chatbot', type: 'chatbot', status: true, description: 'Engages website visitors and captures lead information automatically.', leads: 3420, conversations: 12800, conversionRate: 26.7 },
+  { id: 2, name: 'Customer Support Agent', type: 'chatbot', status: true, description: 'Handles tier-1 support tickets with AI-powered responses.', leads: 0, conversations: 34200, conversionRate: 0 },
+  { id: 3, name: 'Outbound Voice Agent', type: 'voice', status: true, description: 'Makes outbound calls to qualified leads for appointment setting.', leads: 1890, conversations: 5600, conversionRate: 33.8 },
+  { id: 4, name: 'Inbound Voice IVR', type: 'voice', status: false, description: 'Intelligent voice routing and FAQ handling for inbound calls.', leads: 0, conversations: 8900, conversionRate: 0 },
+  { id: 5, name: 'LinkedIn Lead Scraper', type: 'leadgen', status: true, description: 'Scrapes and qualifies leads from LinkedIn based on ICP criteria.', leads: 4200, conversations: 0, conversionRate: 0 },
+  { id: 6, name: 'Email Outreach Bot', type: 'leadgen', status: true, description: 'Sends personalized cold emails with AI-generated copy.', leads: 2180, conversations: 0, conversionRate: 18.4 },
+  { id: 7, name: 'Instagram DM Agent', type: 'chatbot', status: false, description: 'Responds to Instagram DMs and converts followers into leads.', leads: 920, conversations: 4100, conversionRate: 22.4 },
+  { id: 8, name: 'Appointment Setter Bot', type: 'chatbot', status: true, description: 'Books meetings directly into your calendar from chat conversations.', leads: 1560, conversations: 6700, conversionRate: 23.3 }
+];
+
+// ─── Chat Responses per Industry ─────────────────────────────
+const chatResponses = {
+  default: [
+    { triggers: ['hello', 'hi', 'hey', 'greetings'], response: "Hello! 👋 Welcome to NexusAI. I'm your AI assistant. How can I help you automate your business today?" },
+    { triggers: ['pricing', 'cost', 'price', 'how much'], response: "Great question! Our plans start at $497/mo for the Starter package.\n\n🚀 **Starter** — $497/mo (1 chatbot, 1000 conversations)\n⚡ **Growth** — $997/mo (5 chatbots, unlimited conversations)\n🏢 **Enterprise** — Custom pricing\n\nWould you like to schedule a demo?" },
+    { triggers: ['chatbot', 'chat bot', 'bot'], response: "Our AI chatbots are built with cutting-edge NLP technology. They can:\n\n• Capture leads 24/7\n• Handle support tickets\n• Book appointments\n• Qualify prospects\n\nOn average, our clients see a 340% increase in lead capture. Want me to show you a demo?" },
+    { triggers: ['voice', 'call', 'phone'], response: "Our Voice AI agents handle both inbound and outbound calls. They sound completely natural and can:\n\n📞 Set appointments\n📞 Answer FAQs\n📞 Qualify leads\n📞 Route to human agents\n\nThey handle up to 500 concurrent calls. Interested in a demo?" },
+    { triggers: ['lead', 'leads', 'scraping', 'generation'], response: "Our lead generation system is powerful! Here's what we offer:\n\n🎯 LinkedIn scraping & enrichment\n📧 AI-powered email outreach\n🔍 ICP-based targeting\n📊 Lead scoring & qualification\n\nWe've generated over 12,000 qualified leads for our clients this month alone!" },
+    { triggers: ['demo', 'schedule', 'meeting', 'book'], response: "I'd love to set up a demo for you! 📅\n\nAvailable slots this week:\n• Tomorrow at 2:00 PM EST\n• Wednesday at 10:00 AM EST\n• Friday at 3:00 PM EST\n\nJust tell me which works best, and I'll send you a calendar invite!" },
+    { triggers: ['help', 'support', 'issue', 'problem'], response: "I'm here to help! 🛠️ For technical support, I can:\n\n1. Troubleshoot chatbot issues\n2. Check automation status\n3. Review performance metrics\n4. Connect you with a specialist\n\nWhat do you need assistance with?" }
+  ],
+  restaurant: [
+    { triggers: ['hello', 'hi', 'hey'], response: "Welcome! 🍽️ I'm the AI assistant for your restaurant. I can help with reservations, menu questions, catering, and more. What can I do for you?" },
+    { triggers: ['reservation', 'book', 'table', 'reserve'], response: "I'd be happy to help with a reservation! 🪑\n\nPlease tell me:\n• Date & time\n• Party size\n• Any dietary restrictions\n\nWe have availability tonight at 6:30 PM, 7:00 PM, and 8:15 PM." },
+    { triggers: ['menu', 'food', 'dish', 'special'], response: "Here are today's specials! 🌟\n\n🥩 **Wagyu Burger** — $24 (house favorite)\n🐟 **Pan-Seared Salmon** — $28\n🥗 **Truffle Arugula Salad** — $16\n🍝 **Lobster Linguine** — $32\n\nAll specials include a complimentary appetizer. Would you like to reserve a table?" },
+    { triggers: ['catering', 'event', 'party', 'group'], response: "We love catering events! 🎉\n\nWe offer packages for:\n• Corporate lunches (10-50 people)\n• Private dining events\n• Wedding receptions\n• Birthday parties\n\nMinimum order: $500 | Free delivery over $1,000.\n\nShall I send you our catering menu?" },
+    { triggers: ['hours', 'open', 'close', 'time'], response: "⏰ Our hours:\n\nMon-Thu: 11am - 10pm\nFri-Sat: 11am - 11pm\nSunday: 10am - 9pm (Brunch starts at 10!)\n\nHappy Hour: 4-6pm daily 🍸" },
+    { triggers: ['delivery', 'order', 'takeout'], response: "We offer delivery through our app and all major platforms! 🚗\n\n• Door-to-door in 25-40 min\n• Free delivery on orders over $35\n• 10% off for first-time online orders\n\nReady to order?" },
+    { triggers: ['pricing', 'cost', 'price'], response: "Our AI system is tailored for restaurants! 🍽️\n\n📱 **Starter** — $297/mo (reservation bot, menu bot)\n🏪 **Growth** — $597/mo (+ voice ordering, review management)\n🏢 **Enterprise** — Custom (multi-location)\n\n94% of our restaurant clients see a 40%+ increase in online reservations." }
+  ],
+  gym: [
+    { triggers: ['hello', 'hi', 'hey'], response: "Hey there! 💪 Welcome to your AI fitness assistant. I can help with memberships, class schedules, personal training, and more!" },
+    { triggers: ['membership', 'join', 'sign up', 'pricing', 'cost', 'price'], response: "Here are our membership plans! 🏋️\n\n💪 **Basic** — $29/mo (gym access, locker)\n🔥 **Pro** — $59/mo (+ classes, sauna, pool)\n⭐ **Elite** — $99/mo (+ PT sessions, nutrition plan)\n\n🎁 First month FREE with annual commitment!\n\nWant a free trial pass?" },
+    { triggers: ['class', 'schedule', 'yoga', 'spin', 'crossfit'], response: "Here's today's class schedule! 📋\n\n🧘 6:00 AM — Yoga Flow (Sarah)\n🚴 7:30 AM — Spin Class (Marcus)\n💪 12:00 PM — HIIT Express (Jordan)\n🥊 5:30 PM — Kickboxing (Alex)\n🧘 7:00 PM — Evening Yoga (Sarah)\n\nClasses are free with Pro & Elite memberships!" },
+    { triggers: ['trainer', 'personal training', 'pt'], response: "Our certified trainers are the best! 🏆\n\n• 1-on-1 Sessions: $65/session\n• 5-pack: $280 (save $45)\n• 10-pack: $500 (save $150)\n\nAll trainers have 5+ years experience and national certifications.\n\nWant me to match you with a trainer?" },
+    { triggers: ['hours', 'open'], response: "⏰ We're open:\n\nMon-Fri: 5:00 AM - 11:00 PM\nSat-Sun: 6:00 AM - 9:00 PM\nHolidays: 8:00 AM - 6:00 PM\n\n24/7 access for Elite members! 🔑" },
+    { triggers: ['cancel', 'freeze'], response: "No problem! We offer flexible options:\n\n❄️ **Freeze** — $10/mo (up to 3 months)\n🚪 **Cancel** — No fee with 30-day notice\n\nI can help process either. What would you prefer?" }
+  ],
+  clinic: [
+    { triggers: ['hello', 'hi', 'hey'], response: "Hello! 🏥 Welcome to our clinic's AI assistant. I can help you book appointments, check availability, get information about our services, and more." },
+    { triggers: ['appointment', 'book', 'schedule', 'visit'], response: "I'll help you book an appointment! 📅\n\nAvailable times this week:\n• Tuesday 9:00 AM — Dr. Patel\n• Wednesday 2:30 PM — Dr. Kim\n• Thursday 10:00 AM — Dr. Martinez\n• Friday 3:00 PM — Dr. Johnson\n\nWhich time works best for you?" },
+    { triggers: ['services', 'treatments', 'offer'], response: "We offer comprehensive healthcare services! 🩺\n\n• General Check-ups & Physicals\n• Urgent Care\n• Lab Work & Diagnostics\n• Dermatology\n• Pediatrics\n• Mental Health & Counseling\n• Telehealth Visits\n\nAll major insurances accepted." },
+    { triggers: ['insurance', 'coverage', 'accept'], response: "We accept most major insurance plans! ✅\n\n• Blue Cross Blue Shield\n• Aetna\n• UnitedHealthcare\n• Cigna\n• Medicare/Medicaid\n• Humana\n\nNot sure about yours? Give me your provider and I'll check!" },
+    { triggers: ['hours', 'open'], response: "⏰ Clinic Hours:\n\nMon-Fri: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: Closed (Telehealth available)\n\n🚨 Urgent Care: 7 AM - 9 PM daily" },
+    { triggers: ['pricing', 'cost', 'price'], response: "Our AI system helps clinics thrive! 🏥\n\n🩺 **Starter** — $397/mo (appointment bot, reminders)\n⚕️ **Pro** — $797/mo (+ voice agent, patient follow-up)\n🏥 **Enterprise** — Custom (multi-location, EMR integration)\n\nOur clients reduce no-shows by 67% on average." },
+    { triggers: ['emergency', 'urgent'], response: "🚨 For life-threatening emergencies, please call 911.\n\nFor urgent but non-emergency needs:\n📞 Our urgent care line: (555) 911-CARE\n🕐 Urgent Care Hours: 7 AM - 9 PM daily\n\nI can also book same-day appointments if available." }
+  ],
+  realestate: [
+    { triggers: ['hello', 'hi', 'hey'], response: "Welcome! 🏠 I'm your AI real estate assistant. I can help you find properties, schedule viewings, get market insights, and more. What are you looking for?" },
+    { triggers: ['buy', 'purchase', 'looking', 'property', 'house', 'home'], response: "I'd love to help you find your dream home! 🏡\n\nTell me your preferences:\n• Location/neighborhood\n• Budget range\n• Bedrooms/bathrooms\n• Must-have features\n\nWe currently have 142 active listings in your area!" },
+    { triggers: ['sell', 'listing', 'market value'], response: "Thinking of selling? Great timing! 📊\n\nThe market in your area is HOT:\n• Avg. days on market: 18 days\n• Median price increase: +8.4% YoY\n• Buyer demand: Very High\n\nI can provide a free home valuation. Just share your address!" },
+    { triggers: ['viewing', 'tour', 'visit', 'see'], response: "I'll set up a viewing for you! 🗓️\n\nAvailable times:\n• Saturday 10:00 AM - Open House\n• Sunday 1:00 PM - Private Tour\n• Tuesday 4:00 PM - Virtual Tour\n\nWhich property are you interested in?" },
+    { triggers: ['mortgage', 'financing', 'loan', 'payment'], response: "Let me help with financing! 💰\n\nCurrent rates (approximate):\n• 30-year fixed: 6.2%\n• 15-year fixed: 5.8%\n• FHA: 5.9%\n\nFor a $400K home with 20% down:\n📱 Monthly payment ≈ $1,960\n\nWant me to connect you with our mortgage partner?" },
+    { triggers: ['pricing', 'cost', 'price'], response: "Our AI system is built for real estate! 🏠\n\n🏡 **Agent** — $597/mo (lead capture, property matching)\n🏘️ **Broker** — $1,497/mo (+ voice agents, CRM integration)\n🏢 **Enterprise** — Custom (multi-office, MLS sync)\n\nOur agents close 3.2x more deals with our AI tools." },
+    { triggers: ['investment', 'rental', 'roi'], response: "Looking at investment properties? 📈\n\nTop performing areas:\n• Downtown: 7.2% avg. cap rate\n• Suburb North: 6.8% cap rate\n• University District: 8.1% cap rate\n\nI can run a full ROI analysis on any property. Just share the listing!" }
+  ]
+};
+
+const defaultChatResponse = {
+  default: "That's a great question! Let me look into that for you. In the meantime, would you like to learn about our AI automation services? We offer chatbots, voice agents, and lead generation tools that can transform your business. 🚀",
+  restaurant: "Great question! I'd be happy to help. Is there anything specific about our restaurant I can assist with? I can help with reservations, the menu, catering, or delivery! 🍽️",
+  gym: "Good question! Let me find that out for you. In the meantime, would you like to hear about our membership plans or today's class schedule? 💪",
+  clinic: "Thank you for reaching out! Let me look into that. Is there anything else I can help with — perhaps booking an appointment or checking our services? 🏥",
+  realestate: "That's a great question! Let me check on that. In the meantime, are you looking to buy, sell, or just exploring the market? I'm here to help! 🏠"
+};
+
+// ─── Activity Feed per Industry ──────────────────────────────
+const activityFeed = {
+  default: [
+    { id: 1, type: 'lead', message: 'New lead captured: Sarah Johnson from TechCorp', time: '2 min ago', icon: '🎯' },
+    { id: 2, type: 'chat', message: 'Chatbot resolved support ticket #4892', time: '5 min ago', icon: '💬' },
+    { id: 3, type: 'voice', message: 'Voice agent completed call with prospect', time: '8 min ago', icon: '📞' },
+    { id: 4, type: 'lead', message: 'Lead scored: Mike Chen — 92/100 quality score', time: '12 min ago', icon: '⭐' },
+    { id: 5, type: 'revenue', message: 'New deal closed: $12,400 — Acme Industries', time: '18 min ago', icon: '💰' },
+    { id: 6, type: 'chat', message: 'Chatbot booked meeting: Friday 3pm EST', time: '24 min ago', icon: '📅' },
+    { id: 7, type: 'lead', message: 'LinkedIn scraper found 47 new prospects', time: '31 min ago', icon: '🔍' },
+    { id: 8, type: 'voice', message: 'Voice agent set appointment with qualified lead', time: '45 min ago', icon: '✅' },
+    { id: 9, type: 'revenue', message: 'Monthly recurring revenue increased by 12%', time: '1 hr ago', icon: '📈' },
+    { id: 10, type: 'chat', message: 'Email campaign sent to 2,400 prospects', time: '2 hr ago', icon: '📧' }
+  ],
+  restaurant: [
+    { id: 1, type: 'lead', message: 'New reservation: Party of 4, tonight at 7pm', time: '1 min ago', icon: '🪑' },
+    { id: 2, type: 'chat', message: 'Chatbot answered menu inquiry — vegetarian options', time: '4 min ago', icon: '🥗' },
+    { id: 3, type: 'voice', message: 'Voice agent booked catering for 50 guests', time: '10 min ago', icon: '🎉' },
+    { id: 4, type: 'lead', message: 'Online order placed: $78.50 (delivery)', time: '15 min ago', icon: '🛵' },
+    { id: 5, type: 'revenue', message: 'Friday evening fully booked — 42 reservations', time: '22 min ago', icon: '📅' },
+    { id: 6, type: 'chat', message: 'Chatbot collected Google review — 5 stars ⭐', time: '30 min ago', icon: '⭐' },
+    { id: 7, type: 'lead', message: 'New loyalty member signed up via chatbot', time: '38 min ago', icon: '🎯' },
+    { id: 8, type: 'voice', message: 'Automated reminder sent for 6pm reservation', time: '45 min ago', icon: '🔔' }
+  ],
+  gym: [
+    { id: 1, type: 'lead', message: 'New trial pass request: John D. (via Instagram)', time: '2 min ago', icon: '🎯' },
+    { id: 2, type: 'chat', message: 'Chatbot enrolled member in spin class — Tuesday 7am', time: '6 min ago', icon: '🚴' },
+    { id: 3, type: 'voice', message: 'Voice agent confirmed PT session with Marcus', time: '11 min ago', icon: '💪' },
+    { id: 4, type: 'lead', message: 'Free trial converted to Pro membership ($59/mo)', time: '18 min ago', icon: '⭐' },
+    { id: 5, type: 'revenue', message: 'New annual membership: $708 — Elite tier', time: '25 min ago', icon: '💰' },
+    { id: 6, type: 'chat', message: 'Chatbot answered hours inquiry for weekend', time: '32 min ago', icon: '⏰' },
+    { id: 7, type: 'lead', message: 'Referral lead: Sarah M. referred by existing member', time: '40 min ago', icon: '🤝' },
+    { id: 8, type: 'voice', message: 'Automated membership renewal reminder sent', time: '52 min ago', icon: '🔔' }
+  ],
+  clinic: [
+    { id: 1, type: 'lead', message: 'New patient appointment: Dr. Patel, Tue 9am', time: '3 min ago', icon: '📅' },
+    { id: 2, type: 'chat', message: 'Chatbot verified insurance — BCBS accepted', time: '7 min ago', icon: '✅' },
+    { id: 3, type: 'voice', message: 'Appointment reminder call completed — 14 patients', time: '12 min ago', icon: '📞' },
+    { id: 4, type: 'lead', message: 'New telehealth patient registered online', time: '19 min ago', icon: '💻' },
+    { id: 5, type: 'revenue', message: 'No-show rate decreased to 8% this week', time: '26 min ago', icon: '📊' },
+    { id: 6, type: 'chat', message: 'Post-visit survey sent — 4.8/5 avg rating', time: '35 min ago', icon: '⭐' },
+    { id: 7, type: 'lead', message: 'Prescription refill request processed via chatbot', time: '42 min ago', icon: '💊' },
+    { id: 8, type: 'voice', message: 'Lab results notification call completed', time: '55 min ago', icon: '🔬' }
+  ],
+  realestate: [
+    { id: 1, type: 'lead', message: 'New buyer lead: Looking for 3BR in Downtown', time: '2 min ago', icon: '🏠' },
+    { id: 2, type: 'chat', message: 'Chatbot matched buyer with 8 relevant listings', time: '6 min ago', icon: '🔍' },
+    { id: 3, type: 'voice', message: 'Voice agent scheduled viewing for Saturday', time: '11 min ago', icon: '📅' },
+    { id: 4, type: 'lead', message: 'Seller lead: Free home valuation requested', time: '17 min ago', icon: '📊' },
+    { id: 5, type: 'revenue', message: 'Deal closed: 142 Oak St — $485,000', time: '24 min ago', icon: '💰' },
+    { id: 6, type: 'chat', message: 'Mortgage pre-approval inquiry answered', time: '32 min ago', icon: '🏦' },
+    { id: 7, type: 'lead', message: 'Open house RSVP: 12 visitors confirmed', time: '41 min ago', icon: '🏡' },
+    { id: 8, type: 'voice', message: 'Follow-up call with buyer — very interested', time: '50 min ago', icon: '🔥' }
+  ]
+};
+
+// ─── Lead Scraping Results per Industry ──────────────────────
+const leadScrapingResults = {
+  default: [
+    { name: 'Sarah Johnson', company: 'TechCorp Solutions', title: 'VP of Marketing', score: 94, email: 's.johnson@techcorp.com', linkedin: true },
+    { name: 'Mike Chen', company: 'DataFlow Inc.', title: 'Head of Growth', score: 92, email: 'm.chen@dataflow.io', linkedin: true },
+    { name: 'Emily Rodriguez', company: 'CloudNine SaaS', title: 'CMO', score: 89, email: 'e.rodriguez@cloudnine.com', linkedin: true },
+    { name: 'James Wright', company: 'Apex Digital', title: 'Founder & CEO', score: 87, email: 'james@apexdigital.co', linkedin: true },
+    { name: 'Priya Patel', company: 'GrowthStack', title: 'Director of Sales', score: 85, email: 'priya@growthstack.io', linkedin: true },
+    { name: 'David Kim', company: 'NovaTech Labs', title: 'CTO', score: 83, email: 'd.kim@novatech.dev', linkedin: false },
+    { name: 'Lisa Thompson', company: 'BrightPath AI', title: 'VP of Operations', score: 81, email: 'l.thompson@brightpath.ai', linkedin: true },
+    { name: 'Carlos Mendez', company: 'Fusion Marketing', title: 'Growth Lead', score: 79, email: 'carlos@fusionmktg.com', linkedin: true }
+  ],
+  restaurant: [
+    { name: 'Marco Bianchi', company: "Marco's Trattoria", title: 'Owner', score: 96, email: 'marco@marcostrattoria.com', linkedin: true },
+    { name: 'Jennifer Lee', company: 'Sakura Sushi Bar', title: 'General Manager', score: 91, email: 'jen@sakurasushi.com', linkedin: true },
+    { name: 'Robert Davis', company: 'The Grill House', title: 'Owner/Operator', score: 88, email: 'rob@thegrillhouse.com', linkedin: false },
+    { name: 'Maria Santos', company: 'Casa Bonita', title: 'Owner', score: 86, email: 'maria@casabonita.com', linkedin: true },
+    { name: 'Tom Wilson', company: 'Wilson BBQ Chain', title: 'CEO', score: 84, email: 'tom@wilsonbbq.com', linkedin: true },
+    { name: 'Aisha Khan', company: 'Spice Route', title: 'Operations Director', score: 82, email: 'aisha@spiceroute.com', linkedin: true }
+  ],
+  gym: [
+    { name: 'Jake Thompson', company: 'IronFit Gym', title: 'Owner', score: 95, email: 'jake@ironfit.com', linkedin: true },
+    { name: 'Rachel Green', company: 'ZenFlow Yoga', title: 'Founder', score: 93, email: 'rachel@zenflow.com', linkedin: true },
+    { name: 'Derek Stone', company: 'CrossTrain HQ', title: 'Head Coach & Owner', score: 90, email: 'derek@crosstrainhq.com', linkedin: true },
+    { name: 'Samantha Cruz', company: 'FitMoms Studio', title: 'CEO', score: 87, email: 'sam@fitmoms.com', linkedin: true },
+    { name: 'Brian O\'Neill', company: 'PowerHouse Athletics', title: 'Director', score: 84, email: 'brian@powerhouse.fit', linkedin: false },
+    { name: 'Kim Nguyen', company: 'Balance Pilates', title: 'Owner', score: 81, email: 'kim@balancepilates.com', linkedin: true }
+  ],
+  clinic: [
+    { name: 'Dr. Amanda Foster', company: 'Sunrise Family Clinic', title: 'Medical Director', score: 97, email: 'afoster@sunriseclinic.com', linkedin: true },
+    { name: 'Dr. Raj Sharma', company: 'Premier Dental Care', title: 'Owner/Dentist', score: 94, email: 'raj@premierdentalcare.com', linkedin: true },
+    { name: 'Dr. Lisa Park', company: 'Clearview Optometry', title: 'Lead Optometrist', score: 91, email: 'lpark@clearview.com', linkedin: true },
+    { name: 'Dr. Mark Stevens', company: 'Coastal Pediatrics', title: 'Pediatrician', score: 88, email: 'mstevens@coastalpeds.com', linkedin: true },
+    { name: 'Nurse Pam Reed', company: 'WellCare Urgent', title: 'Clinic Manager', score: 85, email: 'preed@wellcare.com', linkedin: false },
+    { name: 'Dr. Chen Wei', company: 'Harmony Wellness', title: 'Naturopath', score: 82, email: 'cwei@harmonywellness.com', linkedin: true }
+  ],
+  realestate: [
+    { name: 'Amanda Brooks', company: 'Brooks Realty Group', title: 'Broker', score: 96, email: 'amanda@brooksrealty.com', linkedin: true },
+    { name: 'Chris Morgan', company: 'Morgan & Associates', title: 'Lead Agent', score: 93, email: 'chris@morganre.com', linkedin: true },
+    { name: 'Diana Vasquez', company: 'Vasquez Properties', title: 'Broker/Owner', score: 90, email: 'diana@vasquezprop.com', linkedin: true },
+    { name: 'Kevin Park', company: 'Skyline Real Estate', title: 'Senior Agent', score: 88, email: 'kevin@skylinere.com', linkedin: true },
+    { name: 'Natalie Torres', company: 'HomeVista Realty', title: 'Team Lead', score: 85, email: 'natalie@homevista.com', linkedin: true },
+    { name: 'Ryan Fitzgerald', company: 'First Choice Realty', title: 'Agent', score: 82, email: 'ryan@firstchoice.com', linkedin: false }
+  ]
+};
+
+module.exports = {
+  dashboardStats,
+  revenueData,
+  automations,
+  chatResponses,
+  defaultChatResponse,
+  activityFeed,
+  leadScrapingResults
+};
